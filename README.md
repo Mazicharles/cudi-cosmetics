@@ -86,7 +86,7 @@ For live launch: complete Paystack business verification and approval, replace t
 1. Push the repository to your Git host, import it into Vercel, and choose the Next.js preset.
 2. Set all eight environment variables from `.env.example` for the appropriate environments. Use separate test/live projects or keys for previews and production. Set `NEXT_PUBLIC_SITE_URL` to the deployed canonical HTTPS origin.
 3. Add the production Supabase OAuth redirect URL, configure the Paystack webhook, and verify the sender domain.
-4. Deploy. `vercel.json` calls `/api/cron/release-orders` every 15 minutes. Vercel sends `Authorization: Bearer <CRON_SECRET>`; use a strong random secret. This schedule requires a Vercel plan supporting that frequency. On a plan allowing daily cron only, change the schedule or arrange an external scheduler with the same bearer header. Product page visits also release expired orders.
+4. This deployment is a non-commercial test demo using Paystack test keys. `vercel.json` calls `/api/cron/release-orders` daily at 02:00 UTC (03:00 Africa/Lagos), compatible with Vercel Hobby. Hobby may run it within the scheduled hour. Orders still expire after 30 minutes, but background stock release and webhook-inbox retries can wait until the daily run; product page visits also release expired orders. Vercel sends `Authorization: Bearer <CRON_SECRET>`; use a strong random secret. Before operating the commercial shop, use an appropriate paid plan and restore the schedule to `*/15 * * * *` (or configure an equivalent external scheduler). Hobby is for non-commercial personal use.
 5. Verify cron delivery and server logs in Vercel. Do not add service keys to any `NEXT_PUBLIC_*` variable.
 
 Manual release:
