@@ -83,7 +83,7 @@ begin
   perform cancel_order_and_restore_stock(current_order.id);
   update payments set status='flagged',raw_response=p_raw where id=payment.id; return false;
  end if;
- if p_raw->'data'->>'status'<>'success' or (p_raw->'data'->>'amount')::bigint<>current_order.total_kobo or p_raw->'data'->>'currency'<>'NGN' or p_raw->'data'->>'reference'<>p_reference or payment.amount_kobo<>current_order.total_kobo then raise exception 'Payment verification mismatch'; end if;
+ if p_raw->'data'->>'status' is distinct from 'success' or (p_raw->'data'->>'amount')::bigint is distinct from current_order.total_kobo::bigint or p_raw->'data'->>'currency' is distinct from 'NGN' or p_raw->'data'->>'reference' is distinct from p_reference or payment.amount_kobo<>current_order.total_kobo then raise exception 'Payment verification mismatch'; end if;
  update payments set status='success',provider_transaction_id=p_transaction_id,paid_at=p_paid_at,raw_response=p_raw where id=payment.id;
  update orders set status='paid',paid_at=p_paid_at where id=current_order.id;
  delete from cart_items where user_id=current_order.user_id;

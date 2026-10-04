@@ -1,1 +1,14 @@
-export default { content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'], theme: { extend: { colors: { cream: '#faf6f0', rose: '#71384d', blush: '#efddd8' }, fontFamily: { serif: ['var(--font-heading)', 'serif'], sans: ['var(--font-body)', 'sans-serif'] } } }, plugins: [] };
+const config = {
+  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  theme: {
+    extend: {
+      colors: { cream: '#faf6f0', rose: '#71384d', blush: '#efddd8' },
+      fontFamily: {
+        serif: ['var(--font-heading)', 'serif'],
+        sans: ['var(--font-body)', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+};
+export default config;
