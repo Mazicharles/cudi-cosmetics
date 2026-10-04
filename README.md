@@ -1,4 +1,4 @@
-# Cudi Cometics
+# Cudi Cosmetics
 
 **Beauty, made simple.** A mobile-first Nigerian cosmetics shop built with Next.js App Router, TypeScript, Tailwind CSS, Supabase Postgres and Google Auth, Paystack hosted checkout, Resend, and Zod. All amounts are integer kobo and all customer-facing dates use Africa/Lagos.
 
@@ -47,7 +47,7 @@ The migration adds constraints, RLS, indexes (unique constraints already provide
 ## Google Cloud and Supabase Auth
 
 1. Create a Google Cloud project at https://console.cloud.google.com/.
-2. Configure Google Auth Platform / OAuth consent screen. Set the app name to **Cudi Cometics**, support email, audience, and developer contact. During testing add the Google accounts that will sign in as test users.
+2. Configure Google Auth Platform / OAuth consent screen. Set the app name to **Cudi Cosmetics**, support email, audience, and developer contact. During testing add the Google accounts that will sign in as test users.
 3. Create an OAuth 2.0 **Web application** Client ID.
 4. Add the authorized redirect URI exactly as `https://<project-ref>.supabase.co/auth/v1/callback`. This is the Supabase callback, not the app callback.
 5. In Supabase **Authentication → Providers → Google**, enable Google and paste the client ID and client secret.
@@ -77,8 +77,8 @@ For live launch: complete Paystack business verification and approval, replace t
 ## Resend
 
 1. Create a Resend account and API key at https://resend.com/. Set `RESEND_API_KEY`.
-2. For development use `EMAIL_FROM="Cudi Cometics <onboarding@resend.dev>"`. This test sender only delivers to the Resend account owner's email, so use that same email to sign in when testing receipt.
-3. For real customers add a custom domain in Resend, publish its SPF and DKIM DNS records exactly as shown in the dashboard, and wait for verification. Update `EMAIL_FROM` to e.g. `Cudi Cometics <orders@your-domain.com>`.
+2. For development use `EMAIL_FROM="Cudi Cosmetics <onboarding@resend.dev>"`. This test sender only delivers to the Resend account owner's email, so use that same email to sign in when testing receipt.
+3. For real customers add a custom domain in Resend, publish its SPF and DKIM DNS records exactly as shown in the dashboard, and wait for verification. Update `EMAIL_FROM` to e.g. `Cudi Cosmetics <orders@your-domain.com>`.
 4. Payment confirmation commits before email sending. Email errors are logged in `email_logs` and never undo a paid order. The partial unique index prevents concurrent callbacks/webhooks from claiming duplicate sends; [Resend idempotency keys](https://resend.com/docs/dashboard/emails/idempotency-keys) provide an additional 24-hour provider safety window.
 
 ## Vercel deployment

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { config } from '@/lib/config';
 import { notFound, redirect } from 'next/navigation';
 import { requireUser } from '@/lib/auth';
 import { OrderDetail } from '@/components/order-detail';
@@ -27,7 +28,7 @@ export default async function Confirmation({
         <p className="eyebrow">Payment received</p>
         <h1 className="mt-4 text-5xl">Thank you, beautiful.</h1>
         <p className="mt-4 text-stone-600">
-          Your {`Cudi Cometics`} order #{order.order_number} is confirmed. A
+          Your {config.name} order #{order.order_number} is confirmed. A
           little beauty is headed your way.
         </p>
       </div>

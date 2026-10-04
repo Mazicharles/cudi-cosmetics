@@ -1,5 +1,5 @@
 export const config = {
-  name: 'Cudi Cometics',
+  name: 'Cudi Cosmetics',
   tagline: 'Beauty, made simple.',
   shippingKobo: 250000,
   freeShippingThresholdKobo: 5000000,

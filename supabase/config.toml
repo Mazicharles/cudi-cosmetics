@@ -1,4 +1,4 @@
-project_id = "cudi-cometics"
+project_id = "cudi-cosmetics"
 [db]
 major_version = 15
 [db.seed]

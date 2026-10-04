@@ -239,10 +239,10 @@ describe('confirmation template', () => {
       'CUDI-42-test',
       'https://example.com',
     );
-    expect(t.subject).toBe('Your Cudi Cometics order #42 is confirmed');
+    expect(t.subject).toBe('Your Cudi Cosmetics order #42 is confirmed');
     for (const body of [t.html, t.text]) {
       for (const value of [
-        'Cudi Cometics',
+        'Cudi Cosmetics',
         'Cudi Cloud Cleanser',
         'CUDI-42-test',
         '₦9,500.00',
