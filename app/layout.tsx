@@ -31,7 +31,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-NG">
+    // Preview browsers/extensions can add attributes to the document root before hydration.
+    // Ignore root-only attribute differences; descendants retain normal hydration checks.
+    <html lang="en-NG" suppressHydrationWarning>
       <body className={`${body.variable} ${heading.variable} font-sans`}>
         <CartProvider>
           <a href="#main" className="sr-only focus:not-sr-only">
