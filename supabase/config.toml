@@ -1,0 +1,6 @@
+project_id = "cudi-cometics"
+[db]
+major_version = 15
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
